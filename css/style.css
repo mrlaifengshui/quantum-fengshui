@@ -1,0 +1,550 @@
+     1	/* ==========================================
+     2	   Quantum Fengshui - Main Stylesheet
+     3	   ========================================== */
+     4	
+     5	/* Reset & Base Styles */
+     6	* {
+     7	    margin: 0;
+     8	    padding: 0;
+     9	    box-sizing: border-box;
+    10	}
+    11	
+    12	html {
+    13	    scroll-behavior: smooth;
+    14	}
+    15	
+    16	:root {
+    17	    --primary-color: #9333ea;
+    18	    --secondary-color: #6366f1;
+    19	    --accent-color: #8b5cf6;
+    20	    --dark-bg: #0f0f1e;
+    21	    --card-bg: #1a1a2e;
+    22	    --text-light: #e2e8f0;
+    23	    --text-gray: #94a3b8;
+    24	    --border-color: #2d2d44;
+    25	}
+    26	
+    27	body {
+    28	    font-family: 'Noto Sans TC', sans-serif;
+    29	    background-color: var(--dark-bg);
+    30	    color: var(--text-light);
+    31	    line-height: 1.6;
+    32	    overflow-x: hidden;
+    33	}
+    34	
+    35	.container {
+    36	    max-width: 1200px;
+    37	    margin: 0 auto;
+    38	    padding: 0 20px;
+    39	}
+    40	
+    41	/* ==========================================
+    42	   Navigation
+    43	   ========================================== */
+    44	nav {
+    45	    background: rgba(15, 15, 30, 0.98);
+    46	    backdrop-filter: blur(10px);
+    47	    padding: 1rem 0;
+    48	    position: fixed;
+    49	    width: 100%;
+    50	    top: 0;
+    51	    z-index: 1000;
+    52	    border-bottom: 1px solid var(--border-color);
+    53	    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    54	}
+    55	
+    56	nav .container {
+    57	    display: flex;
+    58	    justify-content: space-between;
+    59	    align-items: center;
+    60	}
+    61	
+    62	.logo {
+    63	    font-size: 1.5rem;
+    64	    font-weight: 700;
+    65	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    66	    -webkit-background-clip: text;
+    67	    -webkit-text-fill-color: transparent;
+    68	    background-clip: text;
+    69	}
+    70	
+    71	.nav-links {
+    72	    display: flex;
+    73	    gap: 2rem;
+    74	    list-style: none;
+    75	}
+    76	
+    77	.nav-links a {
+    78	    color: var(--text-light);
+    79	    text-decoration: none;
+    80	    transition: color 0.3s;
+    81	    font-weight: 500;
+    82	}
+    83	
+    84	.nav-links a:hover,
+    85	.nav-links a.active {
+    86	    color: var(--primary-color);
+    87	}
+    88	
+    89	/* ==========================================
+    90	   Hero Section
+    91	   ========================================== */
+    92	.hero {
+    93	    min-height: 100vh;
+    94	    display: flex;
+    95	    align-items: center;
+    96	    justify-content: center;
+    97	    text-align: center;
+    98	    padding: 8rem 20px 4rem;
+    99	    background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(99, 102, 241, 0.1));
+   100	    position: relative;
+   101	    overflow: hidden;
+   102	}
+   103	
+   104	.hero::before {
+   105	    content: '';
+   106	    position: absolute;
+   107	    width: 500px;
+   108	    height: 500px;
+   109	    background: radial-gradient(circle, rgba(147, 51, 234, 0.3), transparent);
+   110	    top: 10%;
+   111	    left: 10%;
+   112	    border-radius: 50%;
+   113	    filter: blur(80px);
+   114	    animation: float 20s infinite;
+   115	}
+   116	
+   117	.hero::after {
+   118	    content: '';
+   119	    position: absolute;
+   120	    width: 400px;
+   121	    height: 400px;
+   122	    background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
+   123	    bottom: 10%;
+   124	    right: 10%;
+   125	    border-radius: 50%;
+   126	    filter: blur(80px);
+   127	    animation: float 15s infinite reverse;
+   128	}
+   129	
+   130	@keyframes float {
+   131	    0%, 100% { transform: translateY(0); }
+   132	    50% { transform: translateY(-30px); }
+   133	}
+   134	
+   135	.hero-content {
+   136	    position: relative;
+   137	    z-index: 1;
+   138	    max-width: 900px;
+   139	}
+   140	
+   141	.hero-title {
+   142	    font-size: 3rem;
+   143	    font-weight: 700;
+   144	    margin-bottom: 1.5rem;
+   145	    line-height: 1.4;
+   146	}
+   147	
+   148	.title-line {
+   149	    display: block;
+   150	    margin-bottom: 1rem;
+   151	}
+   152	
+   153	.title-line.highlight {
+   154	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+   155	    -webkit-background-clip: text;
+   156	    -webkit-text-fill-color: transparent;
+   157	    background-clip: text;
+   158	    font-size: 3.5rem;
+   159	}
+   160	
+   161	.hero-subtitle {
+   162	    font-size: 1.25rem;
+   163	    color: var(--text-gray);
+   164	    margin-bottom: 2rem;
+   165	    line-height: 1.8;
+   166	}
+   167	
+   168	.cta-button {
+   169	    display: inline-block;
+   170	    padding: 1rem 2.5rem;
+   171	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+   172	    color: white;
+   173	    text-decoration: none;
+   174	    border-radius: 50px;
+   175	    font-weight: 600;
+   176	    transition: transform 0.3s, box-shadow 0.3s;
+   177	    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+   178	}
+   179	
+   180	.cta-button:hover {
+   181	    transform: translateY(-3px);
+   182	    box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+   183	}
+   184	
+   185	/* ==========================================
+   186	   Sections
+   187	   ========================================== */
+   188	.section {
+   189	    padding: 5rem 0;
+   190	}
+   191	
+   192	.section-title {
+   193	    text-align: center;
+   194	    font-size: 2.5rem;
+   195	    font-weight: 700;
+   196	    margin-bottom: 3rem;
+   197	    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+   198	    -webkit-background-clip: text;
+   199	    -webkit-text-fill-color: transparent;
+   200	    background-clip: text;
+   201	}
+   202	
+   203	/* ==========================================
+   204	   Articles Grid
+   205	   ========================================== */
+   206	.articles-grid {
+   207	    display: grid;
+   208	    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   209	    gap: 2rem;
+   210	    margin-top: 3rem;
+   211	}
+   212	
+   213	.article-card {
+   214	    background: var(--card-bg);
+   215	    border-radius: 15px;
+   216	    padding: 2rem;
+   217	    border: 1px solid var(--border-color);
+   218	    transition: transform 0.3s, box-shadow 0.3s;
+   219	    cursor: pointer;
+   220	}
+   221	
+   222	.article-card:hover {
+   223	    transform: translateY(-5px);
+   224	    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+   225	}
+   226	
+   227	.article-category {
+   228	    display: inline-block;
+   229	    padding: 0.25rem 0.75rem;
+   230	    background: rgba(147, 51, 234, 0.2);
+   231	    color: var(--primary-color);
+   232	    border-radius: 20px;
+   233	    font-size: 0.875rem;
+   234	    margin-bottom: 1rem;
+   235	}
+   236	
+   237	.article-title {
+   238	    font-size: 1.5rem;
+   239	    font-weight: 600;
+   240	    margin-bottom: 1rem;
+   241	    color: var(--text-light);
+   242	}
+   243	
+   244	.article-excerpt {
+   245	    color: var(--text-gray);
+   246	    margin-bottom: 1rem;
+   247	    line-height: 1.8;
+   248	}
+   249	
+   250	.article-date {
+   251	    color: var(--text-gray);
+   252	    font-size: 0.875rem;
+   253	}
+   254	
+   255	/* ==========================================
+   256	   About Section
+   257	   ========================================== */
+   258	.about-grid {
+   259	    display: grid;
+   260	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   261	    gap: 2rem;
+   262	    margin-top: 3rem;
+   263	}
+   264	
+   265	.about-card {
+   266	    background: var(--card-bg);
+   267	    border-radius: 15px;
+   268	    padding: 2rem;
+   269	    border: 1px solid var(--border-color);
+   270	    text-align: center;
+   271	    transition: transform 0.3s;
+   272	}
+   273	
+   274	.about-card:hover {
+   275	    transform: translateY(-5px);
+   276	}
+   277	
+   278	.about-icon {
+   279	    font-size: 3rem;
+   280	    margin-bottom: 1rem;
+   281	}
+   282	
+   283	.about-title {
+   284	    font-size: 1.25rem;
+   285	    font-weight: 600;
+   286	    margin-bottom: 1rem;
+   287	    color: var(--text-light);
+   288	}
+   289	
+   290	.about-description {
+   291	    color: var(--text-gray);
+   292	    line-height: 1.8;
+   293	}
+   294	
+   295	/* ==========================================
+   296	   Contact Section
+   297	   ========================================== */
+   298	.contact-content {
+   299	    max-width: 600px;
+   300	    margin: 0 auto;
+   301	    text-align: center;
+   302	}
+   303	
+   304	.contact-info {
+   305	    background: var(--card-bg);
+   306	    border-radius: 15px;
+   307	    padding: 3rem;
+   308	    border: 1px solid var(--border-color);
+   309	}
+   310	
+   311	.contact-item {
+   312	    margin-bottom: 2rem;
+   313	}
+   314	
+   315	.contact-label {
+   316	    font-weight: 600;
+   317	    color: var(--primary-color);
+   318	    margin-bottom: 0.5rem;
+   319	}
+   320	
+   321	.contact-value {
+   322	    color: var(--text-light);
+   323	    font-size: 1.125rem;
+   324	}
+   325	
+   326	.contact-value a {
+   327	    color: var(--primary-color);
+   328	    text-decoration: none;
+   329	}
+   330	
+   331	.contact-value a:hover {
+   332	    text-decoration: underline;
+   333	}
+   334	
+   335	/* ==========================================
+   336	   Footer
+   337	   ========================================== */
+   338	.footer {
+   339	    background: var(--card-bg);
+   340	    padding: 3rem 0;
+   341	    text-align: center;
+   342	    border-top: 1px solid var(--border-color);
+   343	    margin-top: 5rem;
+   344	}
+   345	
+   346	.footer p {
+   347	    color: var(--text-gray);
+   348	}
+   349	
+   350	/* ==========================================
+   351	   Mobile Responsive Design - OPTIMIZED
+   352	   ========================================== */
+   353	
+   354	/* Tablet and Large Phones */
+   355	@media (max-width: 768px) {
+   356	    nav .container {
+   357	        flex-direction: column;
+   358	        gap: 0.75rem;
+   359	        padding: 0.75rem 15px;
+   360	    }
+   361	
+   362	    .logo {
+   363	        font-size: 1.3rem;
+   364	    }
+   365	
+   366	    .nav-links {
+   367	        gap: 1rem;
+   368	        flex-wrap: wrap;
+   369	        justify-content: center;
+   370	        font-size: 0.9rem;
+   371	    }
+   372	
+   373	    .hero {
+   374	        min-height: 100vh;
+   375	        padding: 9rem 15px 3rem;
+   376	    }
+   377	
+   378	    .hero-content {
+   379	        max-width: 100%;
+   380	        padding: 0 10px;
+   381	    }
+   382	
+   383	    .hero-title {
+   384	        font-size: 1.5rem;
+   385	        line-height: 1.6;
+   386	        margin-bottom: 2rem;
+   387	    }
+   388	
+   389	    .title-line {
+   390	        margin-bottom: 1rem;
+   391	        font-size: 1.5rem;
+   392	    }
+   393	
+   394	    .title-line.highlight {
+   395	        font-size: 1.75rem;
+   396	        line-height: 1.5;
+   397	    }
+   398	
+   399	    .hero-subtitle {
+   400	        font-size: 1rem;
+   401	        line-height: 1.7;
+   402	        margin-bottom: 1.5rem;
+   403	    }
+   404	
+   405	    .cta-button {
+   406	        padding: 0.875rem 2rem;
+   407	        font-size: 1rem;
+   408	    }
+   409	
+   410	    .section {
+   411	        padding: 3rem 0;
+   412	    }
+   413	
+   414	    .section-title {
+   415	        font-size: 2rem;
+   416	    }
+   417	
+   418	    .articles-grid,
+   419	    .about-grid {
+   420	        grid-template-columns: 1fr;
+   421	        gap: 1.5rem;
+   422	    }
+   423	
+   424	    .article-card,
+   425	    .about-card {
+   426	        padding: 1.5rem;
+   427	    }
+   428	
+   429	    .contact-info {
+   430	        padding: 2rem 1.5rem;
+   431	    }
+   432	}
+   433	
+   434	/* Small Phones */
+   435	@media (max-width: 480px) {
+   436	    nav .container {
+   437	        padding: 0.5rem 10px;
+   438	        gap: 0.5rem;
+   439	    }
+   440	
+   441	    .logo {
+   442	        font-size: 1.1rem;
+   443	        text-align: center;
+   444	    }
+   445	
+   446	    .nav-links {
+   447	        font-size: 0.85rem;
+   448	        gap: 0.75rem;
+   449	    }
+   450	
+   451	    .hero {
+   452	        padding: 8rem 10px 2rem;
+   453	        min-height: 100vh;
+   454	    }
+   455	
+   456	    .hero-content {
+   457	        padding: 0 5px;
+   458	    }
+   459	
+   460	    .hero-title {
+   461	        font-size: 1.25rem;
+   462	        line-height: 1.7;
+   463	        margin-bottom: 1.5rem;
+   464	    }
+   465	
+   466	    .title-line {
+   467	        margin-bottom: 0.9rem;
+   468	        font-size: 1.25rem;
+   469	    }
+   470	
+   471	    .title-line.highlight {
+   472	        font-size: 1.45rem;
+   473	        line-height: 1.6;
+   474	        margin-bottom: 0.9rem;
+   475	    }
+   476	
+   477	    .hero-subtitle {
+   478	        font-size: 0.95rem;
+   479	        line-height: 1.7;
+   480	        padding: 0 5px;
+   481	    }
+   482	
+   483	    .cta-button {
+   484	        padding: 0.75rem 1.75rem;
+   485	        font-size: 0.9rem;
+   486	    }
+   487	
+   488	    .section-title {
+   489	        font-size: 1.6rem;
+   490	    }
+   491	
+   492	    .article-card,
+   493	    .about-card {
+   494	        padding: 1.25rem;
+   495	    }
+   496	
+   497	    .article-title {
+   498	        font-size: 1.25rem;
+   499	    }
+   500	
+   501	    .about-icon {
+   502	        font-size: 2.5rem;
+   503	    }
+   504	
+   505	    .contact-info {
+   506	        padding: 1.5rem 1rem;
+   507	    }
+   508	
+   509	    .contact-value {
+   510	        font-size: 1rem;
+   511	    }
+   512	}
+   513	
+   514	/* Extra Small Phones */
+   515	@media (max-width: 375px) {
+   516	    .logo {
+   517	        font-size: 1rem;
+   518	    }
+   519	
+   520	    .nav-links {
+   521	        font-size: 0.8rem;
+   522	        gap: 0.5rem;
+   523	    }
+   524	
+   525	    .hero {
+   526	        padding: 7rem 8px 2rem;
+   527	    }
+   528	
+   529	    .hero-title {
+   530	        font-size: 1.15rem;
+   531	    }
+   532	
+   533	    .title-line {
+   534	        font-size: 1.15rem;
+   535	        margin-bottom: 0.8rem;
+   536	    }
+   537	
+   538	    .title-line.highlight {
+   539	        font-size: 1.35rem;
+   540	    }
+   541	
+   542	    .hero-subtitle {
+   543	        font-size: 0.9rem;
+   544	    }
+   545	
+   546	    .section-title {
+   547	        font-size: 1.4rem;
+   548	    }
+   549	}
+   550	
