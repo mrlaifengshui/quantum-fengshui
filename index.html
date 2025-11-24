@@ -13,11 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ==========================================
-           Quantum Fengshui - Main Stylesheet
-           ========================================== */
-
-        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -53,9 +48,7 @@
             padding: 0 20px;
         }
 
-        /* ==========================================
-           Navigation
-           ========================================== */
+        /* Navigation */
         nav {
             background: rgba(15, 15, 30, 0.98);
             backdrop-filter: blur(10px);
@@ -101,9 +94,7 @@
             color: var(--primary-color);
         }
 
-        /* ==========================================
-           Hero Section
-           ========================================== */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -111,7 +102,7 @@
             justify-content: center;
             text-align: center;
             padding: 8rem 20px 4rem;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(99, 102, 241, 0.1));
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(99, 102, 241, 0.15));
             position: relative;
             overflow: hidden;
         }
@@ -119,32 +110,32 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.3), transparent);
-            top: 10%;
-            left: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.4), transparent);
+            top: 5%;
+            left: 5%;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(100px);
             animation: float 20s infinite;
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
-            bottom: 10%;
-            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent);
+            bottom: 5%;
+            right: 5%;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(100px);
             animation: float 15s infinite reverse;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(5deg); }
         }
 
         .hero-content {
@@ -153,16 +144,36 @@
             max-width: 900px;
         }
 
+        /* 量子太極圖標 */
+        .quantum-symbol {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: rotateSymbol 20s linear infinite;
+        }
+
+        @keyframes rotateSymbol {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .quantum-symbol svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.6));
+        }
+
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
+            margin-bottom: 2rem;
+            line-height: 1.3;
         }
 
         .title-line {
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .title-line.highlight {
@@ -170,24 +181,25 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 3.5rem;
+            font-size: 4rem;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--text-gray);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
         }
@@ -197,9 +209,33 @@
             box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
         }
 
-        /* ==========================================
-           Sections
-           ========================================== */
+        /* WhatsApp 浮動按鈕 */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Sections */
         .section {
             padding: 5rem 0;
         }
@@ -215,9 +251,7 @@
             background-clip: text;
         }
 
-        /* ==========================================
-           Articles Grid
-           ========================================== */
+        /* Articles Grid */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -267,9 +301,7 @@
             font-size: 0.875rem;
         }
 
-        /* ==========================================
-           About Section
-           ========================================== */
+        /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -307,9 +339,7 @@
             line-height: 1.8;
         }
 
-        /* ==========================================
-           Contact Section
-           ========================================== */
+        /* Contact Section */
         .contact-content {
             max-width: 600px;
             margin: 0 auto;
@@ -341,15 +371,15 @@
         .contact-value a {
             color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .contact-value a:hover {
+            color: var(--secondary-color);
             text-decoration: underline;
         }
 
-        /* ==========================================
-           Footer
-           ========================================== */
+        /* Footer */
         .footer {
             background: var(--card-bg);
             padding: 3rem 0;
@@ -362,9 +392,7 @@
             color: var(--text-gray);
         }
 
-        /* ==========================================
-           Mobile Responsive Design
-           ========================================== */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             nav .container {
                 flex-direction: column;
@@ -385,39 +413,48 @@
 
             .hero {
                 min-height: 100vh;
-                padding: 9rem 15px 3rem;
+                padding: 8rem 15px 3rem;
             }
 
-            .hero-content {
-                max-width: 100%;
-                padding: 0 10px;
+            .quantum-symbol {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 1.5rem;
             }
 
             .hero-title {
-                font-size: 1.5rem;
-                line-height: 1.6;
-                margin-bottom: 2rem;
+                font-size: 2rem;
+                line-height: 1.4;
+                margin-bottom: 1.5rem;
             }
 
             .title-line {
                 margin-bottom: 1rem;
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             .title-line.highlight {
-                font-size: 1.75rem;
-                line-height: 1.5;
+                font-size: 2.3rem;
+                line-height: 1.4;
             }
 
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.15rem;
                 line-height: 1.7;
-                margin-bottom: 1.5rem;
+                margin-bottom: 2rem;
             }
 
             .cta-button {
-                padding: 0.875rem 2rem;
+                padding: 1rem 2.5rem;
                 font-size: 1rem;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
             }
 
             .section {
@@ -445,117 +482,45 @@
         }
 
         @media (max-width: 480px) {
-            nav .container {
-                padding: 0.5rem 10px;
-                gap: 0.5rem;
-            }
-
-            .logo {
-                font-size: 1.1rem;
-                text-align: center;
-            }
-
-            .nav-links {
-                font-size: 0.85rem;
-                gap: 0.75rem;
-            }
-
             .hero {
-                padding: 8rem 10px 2rem;
-                min-height: 100vh;
+                padding: 7rem 10px 2rem;
             }
 
-            .hero-content {
-                padding: 0 5px;
+            .quantum-symbol {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1.2rem;
             }
 
             .hero-title {
-                font-size: 1.25rem;
-                line-height: 1.7;
-                margin-bottom: 1.5rem;
-            }
-
-            .title-line {
-                margin-bottom: 0.9rem;
-                font-size: 1.25rem;
-            }
-
-            .title-line.highlight {
-                font-size: 1.45rem;
-                line-height: 1.6;
-                margin-bottom: 0.9rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-                line-height: 1.7;
-                padding: 0 5px;
-            }
-
-            .cta-button {
-                padding: 0.75rem 1.75rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
                 font-size: 1.6rem;
             }
 
-            .article-card,
-            .about-card {
-                padding: 1.25rem;
-            }
-
-            .article-title {
-                font-size: 1.25rem;
-            }
-
-            .about-icon {
-                font-size: 2.5rem;
-            }
-
-            .contact-info {
-                padding: 1.5rem 1rem;
-            }
-
-            .contact-value {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 375px) {
-            .logo {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                font-size: 0.8rem;
-                gap: 0.5rem;
-            }
-
-            .hero {
-                padding: 7rem 8px 2rem;
-            }
-
-            .hero-title {
-                font-size: 1.15rem;
-            }
-
             .title-line {
-                font-size: 1.15rem;
+                font-size: 1.6rem;
                 margin-bottom: 0.8rem;
             }
 
             .title-line.highlight {
-                font-size: 1.35rem;
+                font-size: 1.9rem;
             }
 
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 1.05rem;
+                padding: 0 5px;
             }
 
-            .section-title {
-                font-size: 1.4rem;
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 26px;
             }
         }
     </style>
@@ -577,6 +542,44 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <!-- 量子太極圖標 -->
+            <div class="quantum-symbol">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 外圈 -->
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient1)" stroke-width="2"/>
+                    
+                    <!-- 陰陽 S 形分界 -->
+                    <path d="M 100 5 A 95 95 0 0 1 100 195 A 47.5 47.5 0 0 0 100 100 A 47.5 47.5 0 0 1 100 5" 
+                          fill="url(#gradient2)"/>
+                    <path d="M 100 5 A 95 95 0 0 0 100 195 A 47.5 47.5 0 0 1 100 100 A 47.5 47.5 0 0 0 100 5" 
+                          fill="url(#gradient3)" opacity="0.8"/>
+                    
+                    <!-- 小圓點 -->
+                    <circle cx="100" cy="52.5" r="12" fill="#9333ea"/>
+                    <circle cx="100" cy="147.5" r="12" fill="#6366f1"/>
+                    
+                    <!-- 量子粒子效果 -->
+                    <circle cx="100" cy="52.5" r="8" fill="white" opacity="0.6"/>
+                    <circle cx="100" cy="147.5" r="8" fill="white" opacity="0.6"/>
+                    
+                    <!-- 漸變定義 -->
+                    <defs>
+                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9333ea;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.7" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
             <h1 class="hero-title">
                 <span class="title-line">從量子科學到易經智慧</span>
                 <span class="title-line highlight">以身心靈共振</span>
@@ -586,6 +589,13 @@
             <a href="#articles" class="cta-button">探索更多智慧</a>
         </div>
     </section>
+
+    <!-- WhatsApp 浮動按鈕 -->
+    <a href="https://wa.me/85298821298" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 聯絡">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="white">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.960 18.245c-0.291-0.146-1.726-0.852-1.994-0.949s-0.462-0.146-0.657 0.146c-0.195 0.291-0.755 0.949-0.926 1.144s-0.341 0.219-0.632 0.073c-0.291-0.146-1.228-0.452-2.338-1.443-0.864-0.771-1.448-1.723-1.619-2.014s-0.018-0.448 0.128-0.593c0.131-0.131 0.291-0.341 0.437-0.512s0.195-0.291 0.291-0.486c0.097-0.195 0.049-0.365-0.024-0.512s-0.657-1.584-0.901-2.171c-0.237-0.571-0.479-0.494-0.657-0.503-0.17-0.008-0.365-0.010-0.56-0.010s-0.512 0.073-0.779 0.365c-0.268 0.291-1.022 0.999-1.022 2.437s1.046 2.828 1.192 3.023c0.146 0.195 2.061 3.148 4.995 4.416 0.698 0.301 1.243 0.481 1.668 0.616 0.701 0.223 1.339 0.191 1.843 0.116 0.562-0.084 1.726-0.706 1.970-1.388s0.244-1.267 0.171-1.388c-0.073-0.122-0.268-0.195-0.56-0.341z"/>
+        </svg>
+    </a>
 
     <!-- Articles Section -->
     <section id="articles" class="section">
@@ -633,12 +643,25 @@
                     <div class="contact-item">
                         <div class="contact-label">官方網站</div>
                         <div class="contact-value">
-                            <a href="https://mrlaifengshui.com" target="_blank">mrlaifengshui.com</a>
+                            <a href="https://mrlaifengshui.com" target="_blank" rel="noopener noreferrer">mrlaifengshui.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-label">電子郵件</div>
-                        <div class="contact-value">mrlaifengshui.com</div>
+                        <div class="contact-value">
+                            <a href="mailto:mrlaifengshui@gmail.com">mrlaifengshui@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">WhatsApp 咨詢</div>
+                        <div class="contact-value">
+                            <a href="https://wa.me/85298821298" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor">
+                                    <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.960 18.245c-0.291-0.146-1.726-0.852-1.994-0.949s-0.462-0.146-0.657 0.146c-0.195 0.291-0.755 0.949-0.926 1.144s-0.341 0.219-0.632 0.073c-0.291-0.146-1.228-0.452-2.338-1.443-0.864-0.771-1.448-1.723-1.619-2.014s-0.018-0.448 0.128-0.593c0.131-0.131 0.291-0.341 0.437-0.512s0.195-0.291 0.291-0.486c0.097-0.195 0.049-0.365-0.024-0.512s-0.657-1.584-0.901-2.171c-0.237-0.571-0.479-0.494-0.657-0.503-0.17-0.008-0.365-0.010-0.56-0.010s-0.512 0.073-0.779 0.365c-0.268 0.291-1.022 0.999-1.022 2.437s1.046 2.828 1.192 3.023c0.146 0.195 2.061 3.148 4.995 4.416 0.698 0.301 1.243 0.481 1.668 0.616 0.701 0.223 1.339 0.191 1.843 0.116 0.562-0.084 1.726-0.706 1.970-1.388s0.244-1.267 0.171-1.388c-0.073-0.122-0.268-0.195-0.56-0.341z"/>
+                                </svg>
+                                點擊直接聯絡
+                            </a>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-label">服務時間</div>
@@ -658,7 +681,6 @@
     </footer>
 
     <script>
-        // Articles Data
         const articles = [
             {
                 id: 1,
