@@ -272,11 +272,27 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+        }
+
+        /* 確保連結在手機上可點擊 */
+        a.article-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: rgba(147, 51, 234, 0.2);
+            touch-action: manipulation;
+        }
+
+        /* 手機上的點擊反饋 */
+        a.article-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
         }
 
         .article-category {
@@ -480,6 +496,14 @@
             .article-card,
             .about-card {
                 padding: 1.5rem;
+            }
+
+            /* 確保手機上文章卡片可以點擊 */
+            a.article-card {
+                -webkit-tap-highlight-color: rgba(147, 51, 234, 0.3);
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
             }
 
             .contact-info {
@@ -746,7 +770,8 @@
                 `;
                 
                 if (article.link) {
-                    return `<a href="${article.link}" class="article-card article-card-link" style="text-decoration: none; color: inherit; display: block;">${cardContent}</a>`;
+                    // 確保連結可以在手機上正常點擊
+                    return `<a href="${article.link}" class="article-card" onclick="window.location.href='${article.link}'; return true;">${cardContent}</a>`;
                 } else {
                     return `<div class="article-card">${cardContent}</div>`;
                 }
