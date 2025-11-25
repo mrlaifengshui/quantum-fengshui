@@ -1,3 +1,6 @@
+Perfect! Here is your complete `index.html`:
+
+```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -15,70 +18,207 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     
-    <!-- External CSS with Absolute URL -->
-    <link rel="stylesheet" href="https://mrlaifengshui.github.io/quantum-fengshui/css/style.css">
+    <!-- External CSS with Taichi Features -->
+    <link rel="stylesheet" href="https://mrlaifengshui.github.io/quantum-fengshui/css/style_taichi.css">
     
-    <!-- Additional Styles for New Features (Quantum Taiji, WhatsApp, Enhanced Mobile) -->
     <style>
-        /* Quantum Taiji Symbol */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #9333ea;
+            --secondary-color: #6366f1;
+            --accent-color: #8b5cf6;
+            --dark-bg: #0f0f1e;
+            --card-bg: #1a1a2e;
+            --text-light: #e2e8f0;
+            --text-gray: #94a3b8;
+            --border-color: #2d2d44;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 15, 30, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 20px 4rem;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(99, 102, 241, 0.15));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.4), transparent);
+            top: 5%;
+            left: 5%;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 20s infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent);
+            bottom: 5%;
+            right: 5%;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 15s infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        /* 量子太極圖標 */
         .quantum-symbol {
             width: 120px;
             height: 120px;
-            margin: 0 auto 30px;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.6));
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: rotateSymbol 20s linear infinite;
+        }
+
+        @keyframes rotateSymbol {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .quantum-symbol svg {
             width: 100%;
             height: 100%;
-            animation: rotate 20s linear infinite;
+            filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.6));
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Enhanced Mobile Typography */
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
+            line-height: 1.3;
         }
 
         .title-line {
             display: block;
-            background: linear-gradient(135deg, #e0e0ff 0%, #b8b8ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 1.2rem;
         }
 
         .title-line.highlight {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #6366f1 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 10px 0;
+            font-size: 4rem;
         }
 
         .hero-subtitle {
             font-size: 1.4rem;
             color: var(--text-gray);
-            margin-bottom: 40px;
+            margin-bottom: 3rem;
             line-height: 1.8;
         }
 
-        /* WhatsApp Floating Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+        }
+
+        /* WhatsApp 浮動按鈕 */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -90,29 +230,157 @@
             border-radius: 50px;
             text-align: center;
             font-size: 30px;
-            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
             z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             text-decoration: none;
         }
 
         .whatsapp-float:hover {
-            background-color: #20ba5a;
-            box-shadow: 2px 2px 25px rgba(37, 211, 102, 0.6);
             transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.5);
         }
 
-        /* Contact Section Links */
-        .contact-value a {
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(147, 51, 234, 0.2);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
             color: var(--text-light);
+        }
+
+        .article-excerpt {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .article-date {
+            color: var(--text-gray);
+            font-size: 0.875rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .about-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .contact-value a {
+            color: var(--primary-color);
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            transition: color 0.3s;
         }
 
         .contact-value a:hover {
@@ -120,50 +388,126 @@
             text-decoration: underline;
         }
 
-        .contact-value svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 5rem;
         }
 
-        /* Tablet Breakpoint */
+        .footer p {
+            color: var(--text-gray);
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.75rem 15px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding: 8rem 15px 3rem;
+            }
+
             .quantum-symbol {
                 width: 100px;
                 height: 100px;
-                margin-bottom: 25px;
+                margin-bottom: 1.5rem;
             }
 
             .hero-title {
+                font-size: 2rem;
+                line-height: 1.4;
+                margin-bottom: 1.5rem;
+            }
+
+            .title-line {
+                margin-bottom: 1rem;
                 font-size: 2rem;
             }
 
             .title-line.highlight {
                 font-size: 2.3rem;
+                line-height: 1.4;
             }
 
             .hero-subtitle {
                 font-size: 1.15rem;
+                line-height: 1.7;
+                margin-bottom: 2rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
             }
 
             .whatsapp-float {
                 width: 55px;
                 height: 55px;
-                bottom: 25px;
-                right: 25px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .articles-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .article-card,
+            .about-card {
+                padding: 1.5rem;
+            }
+
+            .contact-info {
+                padding: 2rem 1.5rem;
             }
         }
 
-        /* Mobile Breakpoint */
         @media (max-width: 480px) {
+            .hero {
+                padding: 7rem 10px 2rem;
+            }
+
             .quantum-symbol {
                 width: 80px;
                 height: 80px;
-                margin-bottom: 20px;
+                margin-bottom: 1.2rem;
             }
 
             .hero-title {
                 font-size: 1.6rem;
+            }
+
+            .title-line {
+                font-size: 1.6rem;
+                margin-bottom: 0.8rem;
             }
 
             .title-line.highlight {
@@ -172,14 +516,19 @@
 
             .hero-subtitle {
                 font-size: 1.05rem;
-                margin-bottom: 30px;
+                padding: 0 5px;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
             }
 
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
-                bottom: 20px;
-                right: 20px;
+                bottom: 15px;
+                right: 15px;
                 font-size: 26px;
             }
         }
@@ -187,245 +536,145 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav>
         <div class="container">
-            <div class="nav-wrapper">
-                <a href="#" class="logo">
-                    <i class="fas fa-yin-yang"></i>
-                    <span>量子風水</span>
-                </a>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">首頁</a></li>
-                    <li><a href="#about" class="nav-link">關於我們</a></li>
-                    <li><a href="#articles" class="nav-link">精選文章</a></li>
-                    <li><a href="#services" class="nav-link">咨詢服務</a></li>
-                    <li><a href="#contact" class="nav-link">聯絡我們</a></li>
-                </ul>
-                <button class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            <div class="logo">量子風水 Quantum Fengshui</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首頁</a></li>
+                <li><a href="#articles">文章</a></li>
+                <li><a href="#about">關於</a></li>
+                <li><a href="#contact">聯絡</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="floating-orb orb-1"></div>
-            <div class="floating-orb orb-2"></div>
-            <div class="floating-orb orb-3"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <!-- Quantum Taiji Symbol -->
-                <div class="quantum-symbol">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
-                            </linearGradient>
-                            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.8" />
-                                <stop offset="50%" style="stop-color:#9333ea;stop-opacity:0.9" />
-                                <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Outer Circle -->
-                        <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient1)" stroke-width="2" opacity="0.6"/>
-                        
-                        <!-- Taiji Yin-Yang -->
-                        <path d="M 100 5 A 95 95 0 0 1 100 195 A 47.5 47.5 0 0 0 100 100 A 47.5 47.5 0 0 1 100 5" 
-                              fill="url(#gradient2)" opacity="0.9"/>
-                        <path d="M 100 5 A 95 95 0 0 0 100 195 A 47.5 47.5 0 0 1 100 100 A 47.5 47.5 0 0 0 100 5" 
-                              fill="rgba(255,255,255,0.1)" stroke="url(#gradient1)" stroke-width="1"/>
-                        
-                        <!-- Small Circles (Quantum Particles) -->
-                        <circle cx="100" cy="52.5" r="12" fill="rgba(255,255,255,0.9)"/>
-                        <circle cx="100" cy="147.5" r="12" fill="url(#gradient2)"/>
-                        
-                        <!-- Additional Quantum Effects -->
-                        <circle cx="100" cy="52.5" r="8" fill="rgba(147,51,234,0.3)"/>
-                        <circle cx="100" cy="147.5" r="8" fill="rgba(255,255,255,0.3)"/>
-                    </svg>
-                </div>
-
-                <h1 class="hero-title">
-                    <span class="title-line">從量子科學到易經智慧</span>
-                    <span class="title-line highlight">整合身心靈</span>
-                    <span class="title-line">重塑豐盛磁場</span>
-                </h1>
-                <p class="hero-subtitle">
-                    以科學驗證的能量共振原理，結合千年易經智慧<br>
-                    為您打造和諧富足的生命藍圖
-                </p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
-                        <i class="fas fa-compass"></i> 探索服務
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-phone-alt"></i> 立即諮詢
-                    </a>
-                </div>
+        <div class="hero-content">
+            <!-- 量子太極圖標 -->
+            <div class="quantum-symbol">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 外圈 -->
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient1)" stroke-width="2"/>
+                    
+                    <!-- 陰陽 S 形分界 -->
+                    <path d="M 100 5 A 95 95 0 0 1 100 195 A 47.5 47.5 0 0 0 100 100 A 47.5 47.5 0 0 1 100 5" 
+                          fill="url(#gradient2)"/>
+                    <path d="M 100 5 A 95 95 0 0 0 100 195 A 47.5 47.5 0 0 1 100 100 A 47.5 47.5 0 0 0 100 5" 
+                          fill="url(#gradient3)" opacity="0.8"/>
+                    
+                    <!-- 小圓點 -->
+                    <circle cx="100" cy="52.5" r="12" fill="#9333ea"/>
+                    <circle cx="100" cy="147.5" r="12" fill="#6366f1"/>
+                    
+                    <!-- 量子粒子效果 -->
+                    <circle cx="100" cy="52.5" r="8" fill="white" opacity="0.6"/>
+                    <circle cx="100" cy="147.5" r="8" fill="white" opacity="0.6"/>
+                    
+                    <!-- 漸變定義 -->
+                    <defs>
+                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9333ea;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.7" />
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
+
+            <h1 class="hero-title">
+                <span class="title-line">從量子科學到易經智慧</span>
+                <span class="title-line highlight">以身心靈共振</span>
+                <span class="title-line">重塑豐盛磁場</span>
+            </h1>
+            <p class="hero-subtitle">透過整合身心靈的智慧，為您開啟能量場的無限可能</p>
+            <a href="#articles" class="cta-button">探索更多智慧</a>
+        </div>
+    </section>
+
+    <!-- WhatsApp 浮動按鈕 -->
+    <a href="https://wa.me/85298821298" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 聯絡">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="white">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.960 18.245c-0.291-0.146-1.726-0.852-1.994-0.949s-0.462-0.146-0.657 0.146c-0.195 0.291-0.755 0.949-0.926 1.144s-0.341 0.219-0.632 0.073c-0.291-0.146-1.228-0.452-2.338-1.443-0.864-0.771-1.448-1.723-1.619-2.014s-0.018-0.448 0.128-0.593c0.131-0.131 0.291-0.341 0.437-0.512s0.195-0.291 0.291-0.486c0.097-0.195 0.049-0.365-0.024-0.512s-0.657-1.584-0.901-2.171c-0.237-0.571-0.479-0.494-0.657-0.503-0.17-0.008-0.365-0.010-0.56-0.010s-0.512 0.073-0.779 0.365c-0.268 0.291-1.022 0.999-1.022 2.437s1.046 2.828 1.192 3.023c0.146 0.195 2.061 3.148 4.995 4.416 0.698 0.301 1.243 0.481 1.668 0.616 0.701 0.223 1.339 0.191 1.843 0.116 0.562-0.084 1.726-0.706 1.970-1.388s0.244-1.267 0.171-1.388c-0.073-0.122-0.268-0.195-0.56-0.341z"/>
+        </svg>
+    </a>
+
+    <!-- Articles Section -->
+    <section id="articles" class="section">
+        <div class="container">
+            <h2 class="section-title">精選文章</h2>
+            <div id="articles-container" class="articles-grid"></div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">什麼是量子風水？</h2>
-                <p class="section-subtitle">融合古今智慧，開創嶄新視角</p>
-            </div>
-            <div class="about-content">
+            <h2 class="section-title">核心理念</h2>
+            <div class="about-grid">
                 <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3>量子科學</h3>
-                    <p>運用量子糾纏、能量場共振等科學原理，解釋風水如何影響人體能量與環境磁場的交互作用。</p>
+                    <div class="about-icon">⚛️</div>
+                    <h3 class="about-title">量子科學</h3>
+                    <p class="about-description">運用量子力學原理，理解能量場的運作規律，科學地解析環境與人的互動關係。</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3>易經智慧</h3>
-                    <p>傳承五千年的易經八卦智慧，透過陰陽五行的平衡法則，調和空間與時間的能量流動。</p>
+                    <div class="about-icon">☯️</div>
+                    <h3 class="about-title">易經智慧</h3>
+                    <p class="about-description">結合數千年的易經智慧，融會貫通陰陽五行，找到人與天地的和諧共振之道。</p>
                 </div>
                 <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3>整合身心靈</h3>
-                    <p>身體、心智、靈性三位一體的全方位調整，提升個人頻率，創造與宇宙共振的豐盛生活。</p>
+                    <div class="about-icon">🧘</div>
+                    <h3 class="about-title">整合身心靈</h3>
+                    <p class="about-description">從身體、心智到靈性，全方位整合提升，創造內外和諧的豐盛人生。</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section id="articles" class="articles-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">精選文章</h2>
-                <p class="section-subtitle">深入探索量子風水的奧秘</p>
-            </div>
-            <div id="articles-grid" class="articles-grid">
-                <!-- Articles will be dynamically loaded by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">咨詢服務</h2>
-                <p class="section-subtitle">專業團隊為您量身打造能量方案</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>居家風水咨詢</h3>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 住宅能量場分析</li>
-                        <li><i class="fas fa-check"></i> 空間格局優化建議</li>
-                        <li><i class="fas fa-check"></i> 五行平衡調整方案</li>
-                        <li><i class="fas fa-check"></i> 個人化擺設指導</li>
-                    </ul>
-                    <a href="#contact" class="service-btn">立即預約</a>
-                </div>
-                <div class="service-card featured">
-                    <div class="featured-badge">熱門推薦</div>
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>商業空間規劃</h3>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 辦公室磁場評估</li>
-                        <li><i class="fas fa-check"></i> 財位與貴人方位分析</li>
-                        <li><i class="fas fa-check"></i> 團隊能量提升方案</li>
-                        <li><i class="fas fa-check"></i> 企業運勢強化策略</li>
-                    </ul>
-                    <a href="#contact" class="service-btn">立即預約</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3>個人能量調整</h3>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 八字命理分析</li>
-                        <li><i class="fas fa-check"></i> 個人磁場檢測</li>
-                        <li><i class="fas fa-check"></i> 身心靈能量平衡</li>
-                        <li><i class="fas fa-check"></i> 運勢提升指導</li>
-                    </ul>
-                    <a href="#contact" class="service-btn">立即預約</a>
+                <div class="about-card">
+                    <div class="about-icon">💎</div>
+                    <h3 class="about-title">咨詢服務</h3>
+                    <p class="about-description">提供個人化的風水咨詢服務，為您量身打造最適合的能量場調整方案。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">聯絡我們</h2>
-                <p class="section-subtitle">讓我們一起開啟您的能量轉化之旅</p>
-            </div>
+            <h2 class="section-title">聯絡我們</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">官方網站</div>
-                            <div class="contact-value">
-                                <a href="https://mrlaifengshui.com" target="_blank">mrlaifengshui.com</a>
-                            </div>
+                        <div class="contact-label">官方網站</div>
+                        <div class="contact-value">
+                            <a href="https://mrlaifengshui.com" target="_blank" rel="noopener noreferrer">mrlaifengshui.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">電子郵件</div>
-                            <div class="contact-value">
-                                <a href="mailto:mrlaifengshui@gmail.com">mrlaifengshui@gmail.com</a>
-                            </div>
+                        <div class="contact-label">電子郵件</div>
+                        <div class="contact-value">
+                            <a href="mailto:mrlaifengshui@gmail.com">mrlaifengshui@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">WhatsApp 咨詢</div>
-                            <div class="contact-value">
-                                <a href="https://wa.me/85298821298">
-                                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="currentColor" d="M16 0C7.164 0 0 7.164 0 16c0 2.825.743 5.488 2.05 7.813L.7 29.3l5.65-1.481A15.931 15.931 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.402 0-4.698-.639-6.667-1.754l-.477-.289-4.95 1.298 1.32-4.823-.318-.496A13.274 13.274 0 0 1 2.667 16c0-7.364 5.969-13.333 13.333-13.333S29.333 8.636 29.333 16 23.364 29.333 16 29.333z"/>
-                                        <path fill="currentColor" d="M22.95 18.849c-.393-.197-2.325-1.148-2.685-1.279-.36-.131-.622-.197-.884.197-.262.393-.984 1.279-1.213 1.541-.23.262-.459.295-.852.098-.393-.197-1.656-.609-3.155-1.951-1.167-1.041-1.951-2.328-2.181-2.721-.23-.393-.025-.606.172-.803.177-.177.393-.459.59-.689.197-.23.262-.393.393-.656.131-.262.066-.49-.033-.689-.098-.197-.884-2.131-1.213-2.918-.328-.771-.656-.656-.884-.656-.23-.016-.492-.033-.754-.033s-.689.098-1.049.49c-.36.393-1.377 1.344-1.377 3.279s1.41 3.803 1.607 4.065c.197.262 2.771 4.229 6.713 5.934.938.41 1.672.656 2.246.836.951.295 1.82.246 2.508.148.77-.115 2.328-.951 2.656-1.869.328-.918.328-1.705.23-1.869-.098-.164-.36-.262-.754-.459z"/>
-                                    </svg>
-                                    點擊直接聯絡
-                                </a>
-                            </div>
+                        <div class="contact-label">WhatsApp 咨詢</div>
+                        <div class="contact-value">
+                            <a href="https://wa.me/85298821298" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                                <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor">
+                                    <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.050-13.485 13.485-13.485s13.485 6.050 13.485 13.485c0 7.435-6.050 13.485-13.485 13.485zM21.960 18.245c-0.291-0.146-1.726-0.852-1.994-0.949s-0.462-0.146-0.657 0.146c-0.195 0.291-0.755 0.949-0.926 1.144s-0.341 0.219-0.632 0.073c-0.291-0.146-1.228-0.452-2.338-1.443-0.864-0.771-1.448-1.723-1.619-2.014s-0.018-0.448 0.128-0.593c0.131-0.131 0.291-0.341 0.437-0.512s0.195-0.291 0.291-0.486c0.097-0.195 0.049-0.365-0.024-0.512s-0.657-1.584-0.901-2.171c-0.237-0.571-0.479-0.494-0.657-0.503-0.17-0.008-0.365-0.010-0.56-0.010s-0.512 0.073-0.779 0.365c-0.268 0.291-1.022 0.999-1.022 2.437s1.046 2.828 1.192 3.023c0.146 0.195 2.061 3.148 4.995 4.416 0.698 0.301 1.243 0.481 1.668 0.616 0.701 0.223 1.339 0.191 1.843 0.116 0.562-0.084 1.726-0.706 1.970-1.388s0.244-1.267 0.171-1.388c-0.073-0.122-0.268-0.195-0.56-0.341z"/>
+                                </svg>
+                                點擊直接聯絡
+                            </a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <div class="contact-label">服務時間</div>
-                            <div class="contact-value">週一至週六 10:00 - 19:00</div>
-                        </div>
+                        <div class="contact-label">服務時間</div>
+                        <div class="contact-value">週一至週五 09:00 - 18:00</div>
                     </div>
                 </div>
             </div>
@@ -435,54 +684,119 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <div class="footer-logo">
-                        <i class="fas fa-yin-yang"></i>
-                        <span>量子風水</span>
-                    </div>
-                    <p>融合量子科學與易經智慧<br>開啟身心靈豐盛之旅</p>
-                </div>
-                <div class="footer-links">
-                    <h4>快速連結</h4>
-                    <ul>
-                        <li><a href="#home">首頁</a></li>
-                        <li><a href="#about">關於我們</a></li>
-                        <li><a href="#articles">精選文章</a></li>
-                        <li><a href="#services">咨詢服務</a></li>
-                        <li><a href="#contact">聯絡我們</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>關注我們</h4>
-                    <div class="social-links">
-                        <a href="https://mrlaifengshui.com" target="_blank" title="官方網站">
-                            <i class="fas fa-globe"></i>
-                        </a>
-                        <a href="https://wa.me/85298821298" target="_blank" title="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:mrlaifengshui@gmail.com" title="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Quantum Fengshui. All rights reserved.</p>
-            </div>
+            <p>© 2025 Quantum Fengshui. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; color: var(--text-gray);">量子風水 - 以科學與智慧，共創豐盛人生</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/85298821298" class="whatsapp-float" target="_blank" title="WhatsApp 咨詢">
-        <svg viewBox="0 0 32 32" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
-            <path fill="white" d="M16 0C7.164 0 0 7.164 0 16c0 2.825.743 5.488 2.05 7.813L.7 29.3l5.65-1.481A15.931 15.931 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.402 0-4.698-.639-6.667-1.754l-.477-.289-4.95 1.298 1.32-4.823-.318-.496A13.274 13.274 0 0 1 2.667 16c0-7.364 5.969-13.333 13.333-13.333S29.333 8.636 29.333 16 23.364 29.333 16 29.333z"/>
-            <path fill="white" d="M22.95 18.849c-.393-.197-2.325-1.148-2.685-1.279-.36-.131-.622-.197-.884.197-.262.393-.984 1.279-1.213 1.541-.23.262-.459.295-.852.098-.393-.197-1.656-.609-3.155-1.951-1.167-1.041-1.951-2.328-2.181-2.721-.23-.393-.025-.606.172-.803.177-.177.393-.459.59-.689.197-.23.262-.393.393-.656.131-.262.066-.49-.033-.689-.098-.197-.884-2.131-1.213-2.918-.328-.771-.656-.656-.884-.656-.23-.016-.492-.033-.754-.033s-.689.098-1.049.49c-.36.393-1.377 1.344-1.377 3.279s1.41 3.803 1.607 4.065c.197.262 2.771 4.229 6.713 5.934.938.41 1.672.656 2.246.836.951.295 1.82.246 2.508.148.77-.115 2.328-.951 2.656-1.869.328-.918.328-1.705.23-1.869-.098-.164-.36-.262-.754-.459z"/>
-        </svg>
-    </a>
+    <script>
+        const articles = [
+            {
+                id: 1,
+                title: "量子糾纏與風水能量場的科學解讀",
+                category: "量子科學",
+                excerpt: "探索量子糾纏現象如何解釋風水中的能量共振原理，從科學角度理解環境與人的微妙連結。",
+                date: "2025-01-15"
+            },
+            {
+                id: 2,
+                title: "易經八卦與現代空間規劃",
+                category: "易經智慧",
+                excerpt: "深入剖析易經八卦的智慧，如何應用於現代居家與辦公空間的規劃設計。",
+                date: "2025-01-12"
+            },
+            {
+                id: 3,
+                title: "身心靈共振：打造個人能量磁場",
+                category: "身心靈",
+                excerpt: "學習如何透過冥想、呼吸與意識調整，提升個人能量頻率，創造正向磁場。",
+                date: "2025-01-10"
+            },
+            {
+                id: 4,
+                title: "居家風水的五大黃金法則",
+                category: "風水實務",
+                excerpt: "掌握這五個關鍵原則，讓您的居家環境成為滋養生命能量的理想空間。",
+                date: "2025-01-08"
+            },
+            {
+                id: 5,
+                title: "辦公室風水：提升事業運的秘訣",
+                category: "事業發展",
+                excerpt: "從座位選擇到空間布局，全面優化辦公環境，為事業發展注入正能量。",
+                date: "2025-01-05"
+            },
+            {
+                id: 6,
+                title: "色彩能量學：用顏色改變磁場",
+                category: "能量調整",
+                excerpt: "不同顏色擁有不同的振動頻率，學習如何運用色彩能量提升生活品質。",
+                date: "2025-01-03"
+            }
+        ];
 
-    <!-- External JavaScript with Absolute URL -->
-    <script src="https://mrlaifengshui.github.io/quantum-fengshui/js/main.js"></script>
+        function renderArticles() {
+            const container = document.getElementById('articles-container');
+            if (!container) return;
+
+            container.innerHTML = articles.map(article => `
+                <div class="article-card">
+                    <div class="article-category">${article.category}</div>
+                    <h3 class="article-title">${article.title}</h3>
+                    <p class="article-excerpt">${article.excerpt}</p>
+                    <div class="article-date">${article.date}</div>
+                </div>
+            `).join('');
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const sections = document.querySelectorAll('section[id]');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                renderArticles();
+                initSmoothScroll();
+            });
+        } else {
+            renderArticles();
+            initSmoothScroll();
+        }
+    </script>
+    
+    <!-- External JavaScript with Taichi Features -->
+    <script src="https://mrlaifengshui.github.io/quantum-fengshui/js/main_taichi.js"></script>
 </body>
 </html>
+```
