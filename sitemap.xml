@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- 首頁 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Article 1: 量子糾纏與風水能量場 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-1-quantum-fengshui.html</loc>
+        <lastmod>2025-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 2: 易經八卦與現代空間規劃 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-2-iching-space-planning.html</loc>
+        <lastmod>2025-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 3: 身心靈共振 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-3-mind-body-spirit.html</loc>
+        <lastmod>2025-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 4: 居家風水五大黃金法則 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-4-home-fengshui-rules.html</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 5: 辦公室風水 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-5-office-fengshui-career.html</loc>
+        <lastmod>2025-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 6: 色彩能量學 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-6-color-energy-feng-shui.html</loc>
+        <lastmod>2025-01-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 7: 財位佈局 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-7-wealth-position-fengshui.html</loc>
+        <lastmod>2026-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 8: 睡眠品質與臥室風水 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-8-sleep-quality-bedroom-fengshui.html</loc>
+        <lastmod>2026-01-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 9: 水晶與礦石能量學 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-9-crystal-energy-science.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Article 10: 量子風水科學解析 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-10-quantum-fengshui-science.html</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- Article 11: 香港量子風水師收費全攻略 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-11-quantum-fengshui-prices.html</loc>
+        <lastmod>2026-01-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- Article 12: 量子風水家居佈局 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-12-quantum-fengshui-home-layout.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- Article 13: 量子風水商業佈局實證 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-13-quantum-fengshui-commercial-layout.html</loc>
+        <lastmod>2026-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- Article 14: 易經64卦與量子態 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-14-quantum-fengshui-iching.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- Article 15: 量子風水淨化器 -->
+    <url>
+        <loc>https://mrlaifengshui.github.io/quantum-fengshui/articles/article-15-quantum-fengshui-purifier.html</loc>
+        <lastmod>2026-02-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.98</priority>
+    </url>
+
+</urlset>
