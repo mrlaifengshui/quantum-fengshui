@@ -163,13 +163,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, 
-                var(--quantum-purple), 
-                var(--quantum-cyan), 
-                var(--healing-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--quantum-purple);
             position: relative;
         }
 
@@ -437,89 +431,45 @@
             box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
         }
 
-        /* 精選文章樣式 - 只有前3篇 - 科幻量子 + 療癒能量 */
+        /* 精選文章樣式 - 只有前3篇 - 與其他文章風格一致 */
         .featured-article {
-            background: linear-gradient(135deg, 
-                rgba(147, 51, 234, 0.25) 0%, 
-                rgba(79, 70, 229, 0.2) 35%,
-                rgba(16, 185, 129, 0.2) 65%,
-                rgba(236, 72, 153, 0.15) 100%);
-            border: 2px solid var(--quantum-purple);
-            box-shadow: 
-                0 15px 50px rgba(147, 51, 234, 0.6),
-                0 5px 30px rgba(16, 185, 129, 0.4),
-                0 0 40px rgba(236, 72, 153, 0.3),
-                inset 0 0 40px rgba(147, 51, 234, 0.15);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             position: relative;
-            animation: healingQuantumGlow 4s ease-in-out infinite;
             overflow: visible;
         }
 
-        .featured-article::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, 
-                var(--quantum-purple), 
-                var(--quantum-cyan), 
-                var(--healing-green),
-                var(--healing-pink),
-                var(--quantum-purple));
-            background-size: 400% 400%;
-            animation: quantumBorderFlow 10s ease-in-out infinite;
-            border-radius: 20px;
-            z-index: -1;
-            opacity: 0.4;
-            filter: blur(8px);
-        }
+
 
         .featured-article:hover {
-            transform: translateY(-15px) scale(1.04);
+            transform: translateY(-8px);
             box-shadow: 
-                0 25px 60px rgba(147, 51, 234, 0.8),
-                0 10px 50px rgba(16, 185, 129, 0.6),
-                0 0 60px rgba(236, 72, 153, 0.5),
-                inset 0 0 50px rgba(147, 51, 234, 0.25);
+                0 15px 40px rgba(147, 51, 234, 0.4),
+                0 5px 20px rgba(16, 185, 129, 0.2),
+                inset 0 0 20px rgba(147, 51, 234, 0.1);
+            border-color: var(--quantum-purple);
         }
 
         .featured-badge {
             position: absolute;
             top: -12px;
             right: 20px;
-            background: linear-gradient(135deg, 
-                var(--quantum-purple) 0%, 
-                var(--healing-pink) 35%,
-                var(--quantum-cyan) 65%,
-                var(--healing-green) 100%);
+            background: var(--quantum-purple);
             color: white;
-            padding: 10px 24px;
-            border-radius: 30px;
-            font-size: 0.95rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 700;
             box-shadow: 
-                0 6px 20px rgba(147, 51, 234, 0.7),
-                0 0 30px rgba(236, 72, 153, 0.5),
-                0 0 15px rgba(16, 185, 129, 0.4),
-                inset 0 2px 10px rgba(255, 255, 255, 0.2);
+                0 4px 15px rgba(147, 51, 234, 0.6),
+                0 0 20px rgba(147, 51, 234, 0.4);
             z-index: 10;
-            animation: healingFloat 3.5s ease-in-out infinite;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .featured-article .article-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 
-                0 0 20px rgba(147, 51, 234, 0.6),
-                0 0 10px rgba(236, 72, 153, 0.4),
-                0 2px 4px rgba(0, 0, 0, 0.3);
-        }
+
 
         /* 一般精選文章 (第4-9篇) - 正常顯示 */
         .article-card.regular-featured {
