@@ -258,41 +258,24 @@
             max-width: 900px;
         }
 
-        /* 量子糾纏太極圖 */
+        /* 量子太極圖標 */
         .quantum-symbol {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 2rem;
             position: relative;
-            animation: quantumPulse 8s ease-in-out infinite;
+            animation: rotateSymbol 20s linear infinite;
         }
 
-        @keyframes quantumPulse {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg); 
-                filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.6))
-                        drop-shadow(0 0 40px rgba(236, 72, 153, 0.4));
-            }
-            25% { 
-                transform: scale(1.05) rotate(90deg); 
-                filter: drop-shadow(0 0 30px rgba(236, 72, 153, 0.7))
-                        drop-shadow(0 0 50px rgba(6, 182, 212, 0.5));
-            }
-            50% { 
-                transform: scale(1) rotate(180deg); 
-                filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.6))
-                        drop-shadow(0 0 45px rgba(16, 185, 129, 0.5));
-            }
-            75% { 
-                transform: scale(1.05) rotate(270deg); 
-                filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.7))
-                        drop-shadow(0 0 50px rgba(147, 51, 234, 0.5));
-            }
+        @keyframes rotateSymbol {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .quantum-symbol svg {
             width: 100%;
             height: 100%;
+            filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.6));
         }
 
         .hero-title {
@@ -531,16 +514,11 @@
         .featured-article .article-title {
             font-size: 1.75rem;
             font-weight: 700;
-            background: linear-gradient(135deg, 
-                var(--quantum-purple) 0%, 
-                var(--healing-pink) 25%,
-                var(--quantum-cyan) 50%, 
-                var(--healing-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 15px rgba(147, 51, 234, 0.5)) 
-                    drop-shadow(0 0 8px rgba(236, 72, 153, 0.4));
+            color: #ffffff;
+            text-shadow: 
+                0 0 20px rgba(147, 51, 234, 0.6),
+                0 0 10px rgba(236, 72, 153, 0.4),
+                0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         /* 一般精選文章 (第4-9篇) - 正常顯示 */
@@ -866,126 +844,41 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <!-- 量子糾纏太極圖 -->
+            <!-- 量子太極圖標 -->
             <div class="quantum-symbol">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 外圈 -->
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient1)" stroke-width="2"/>
+                    
+                    <!-- 陰陽 S 形分界 -->
+                    <path d="M 100 5 A 95 95 0 0 1 100 195 A 47.5 47.5 0 0 0 100 100 A 47.5 47.5 0 0 1 100 5" 
+                          fill="url(#gradient2)"/>
+                    <path d="M 100 5 A 95 95 0 0 0 100 195 A 47.5 47.5 0 0 1 100 100 A 47.5 47.5 0 0 0 100 5" 
+                          fill="url(#gradient3)" opacity="0.8"/>
+                    
+                    <!-- 小圓點 -->
+                    <circle cx="100" cy="52.5" r="12" fill="#9333ea"/>
+                    <circle cx="100" cy="147.5" r="12" fill="#6366f1"/>
+                    
+                    <!-- 量子粒子效果 -->
+                    <circle cx="100" cy="52.5" r="8" fill="white" opacity="0.6"/>
+                    <circle cx="100" cy="147.5" r="8" fill="white" opacity="0.6"/>
+                    
                     <!-- 漸變定義 -->
                     <defs>
-                        <!-- 主漸變 - 紫粉青綠 -->
-                        <linearGradient id="quantum-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#9333ea;stop-opacity:1" />
-                            <stop offset="33%" style="stop-color:#ec4899;stop-opacity:1" />
-                            <stop offset="66%" style="stop-color:#06b6d4;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
                         </linearGradient>
-                        <linearGradient id="quantum-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.9" />
-                            <stop offset="33%" style="stop-color:#06b6d4;stop-opacity:0.9" />
-                            <stop offset="66%" style="stop-color:#ec4899;stop-opacity:0.9" />
-                            <stop offset="100%" style="stop-color:#9333ea;stop-opacity:0.9" />
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9333ea;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.9" />
                         </linearGradient>
-                        <!-- 發光濾鏡 -->
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                        <!-- 量子脈衝動畫 -->
-                        <radialGradient id="pulse-grad">
-                            <stop offset="0%" style="stop-color:#fff;stop-opacity:0.8">
-                                <animate attributeName="stop-opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
-                            </stop>
-                            <stop offset="100%" style="stop-color:#9333ea;stop-opacity:0">
-                                <animate attributeName="stop-opacity" values="0;0.4;0" dur="2s" repeatCount="indefinite"/>
-                            </stop>
-                        </radialGradient>
+                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.7" />
+                        </linearGradient>
                     </defs>
-                    
-                    <!-- 外層光暈環 -->
-                    <circle cx="100" cy="100" r="98" fill="none" stroke="url(#quantum-grad-1)" stroke-width="0.5" opacity="0.3"/>
-                    <circle cx="100" cy="100" r="95" fill="none" stroke="url(#quantum-grad-1)" stroke-width="2" filter="url(#glow)">
-                        <animate attributeName="stroke-dasharray" values="0 600;600 0;0 600" dur="8s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    <!-- 中層量子糾纏圈 -->
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="url(#quantum-grad-2)" stroke-width="1" opacity="0.5" stroke-dasharray="5,5">
-                        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="15s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="100" cy="100" r="65" fill="none" stroke="url(#quantum-grad-1)" stroke-width="1" opacity="0.4" stroke-dasharray="3,7">
-                        <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="20s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    <!-- 陰陽核心 - 量子態疊加 -->
-                    <path d="M 100 5 A 95 95 0 0 1 100 195 A 47.5 47.5 0 0 0 100 100 A 47.5 47.5 0 0 1 100 5" 
-                          fill="url(#quantum-grad-1)" opacity="0.8"/>
-                    <path d="M 100 5 A 95 95 0 0 0 100 195 A 47.5 47.5 0 0 1 100 100 A 47.5 47.5 0 0 0 100 5" 
-                          fill="url(#quantum-grad-2)" opacity="0.7"/>
-                    
-                    <!-- 量子糾纏連線 - 上下兩點之間 -->
-                    <line x1="100" y1="52.5" x2="100" y2="147.5" stroke="url(#quantum-grad-1)" stroke-width="1" opacity="0.3" stroke-dasharray="3,3">
-                        <animate attributeName="stroke-dashoffset" from="0" to="12" dur="1s" repeatCount="indefinite"/>
-                    </line>
-                    
-                    <!-- 量子粒子群 - 上方 -->
-                    <circle cx="100" cy="52.5" r="15" fill="url(#pulse-grad)" opacity="0.6"/>
-                    <circle cx="100" cy="52.5" r="12" fill="#9333ea" filter="url(#glow)"/>
-                    <circle cx="100" cy="52.5" r="8" fill="#ec4899" opacity="0.8">
-                        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="100" cy="52.5" r="4" fill="white" opacity="0.9">
-                        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    <!-- 量子粒子群 - 下方 -->
-                    <circle cx="100" cy="147.5" r="15" fill="url(#pulse-grad)" opacity="0.6"/>
-                    <circle cx="100" cy="147.5" r="12" fill="#06b6d4" filter="url(#glow)"/>
-                    <circle cx="100" cy="147.5" r="8" fill="#10b981" opacity="0.8">
-                        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1s"/>
-                    </circle>
-                    <circle cx="100" cy="147.5" r="4" fill="white" opacity="0.9">
-                        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.5s" repeatCount="indefinite" begin="0.75s"/>
-                    </circle>
-                    
-                    <!-- 糾纏波動效果 - 環繞粒子的能量波 -->
-                    <circle cx="100" cy="52.5" r="20" fill="none" stroke="#9333ea" stroke-width="1" opacity="0">
-                        <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="100" cy="147.5" r="20" fill="none" stroke="#10b981" stroke-width="1" opacity="0">
-                        <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite" begin="1.5s"/>
-                        <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
-                    </circle>
-                    
-                    <!-- 量子軌道線 - 8個小粒子環繞 -->
-                    <g opacity="0.6">
-                        <circle cx="150" cy="100" r="3" fill="#ec4899">
-                            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="6s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="50" cy="100" r="3" fill="#06b6d4">
-                            <animateTransform attributeName="transform" type="rotate" from="180 100 100" to="540 100 100" dur="6s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="100" cy="50" r="2.5" fill="#fbbf24">
-                            <animateTransform attributeName="transform" type="rotate" from="90 100 100" to="450 100 100" dur="7s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="100" cy="150" r="2.5" fill="#10b981">
-                            <animateTransform attributeName="transform" type="rotate" from="270 100 100" to="630 100 100" dur="7s" repeatCount="indefinite"/>
-                        </circle>
-                        <!-- 對角粒子 -->
-                        <circle cx="135" cy="65" r="2" fill="#a855f7">
-                            <animateTransform attributeName="transform" type="rotate" from="45 100 100" to="405 100 100" dur="8s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="65" cy="135" r="2" fill="#ec4899">
-                            <animateTransform attributeName="transform" type="rotate" from="225 100 100" to="585 100 100" dur="8s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="135" cy="135" r="2" fill="#06b6d4">
-                            <animateTransform attributeName="transform" type="rotate" from="135 100 100" to="495 100 100" dur="9s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="65" cy="65" r="2" fill="#10b981">
-                            <animateTransform attributeName="transform" type="rotate" from="315 100 100" to="675 100 100" dur="9s" repeatCount="indefinite"/>
-                        </circle>
-                    </g>
                 </svg>
             </div>
 
