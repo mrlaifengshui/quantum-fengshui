@@ -311,117 +311,193 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.6);
+            box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
         }
 
-        /* Section Styles */
+        /* WhatsApp 浮動按鈕 */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Sections */
         .section {
             padding: 5rem 0;
-            position: relative;
-            z-index: 1;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
             text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 3rem;
-            color: var(--quantum-cyan);
+            background: linear-gradient(135deg, 
+                var(--quantum-purple) 0%, 
+                var(--healing-pink) 25%,
+                var(--quantum-cyan) 50%, 
+                var(--healing-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
+            padding: 1rem 0;
+            filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.5)) 
+                    drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--quantum-purple), var(--healing-green));
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
+
 
         /* Articles Grid */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .article-card {
             background: var(--card-bg);
-            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-            text-decoration: none;
-            color: inherit;
+            border: 1px solid var(--border-glow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, var(--healing-aura) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
         }
 
         .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 15px 40px rgba(147, 51, 234, 0.4),
+                0 5px 20px rgba(16, 185, 129, 0.2),
+                inset 0 0 20px rgba(147, 51, 234, 0.1);
             border-color: var(--quantum-purple);
         }
 
-        /* Featured Article Styles */
+        .article-card:hover::before {
+            opacity: 1;
+            animation: energyPulse 2s infinite;
+        }
+
+        /* 確保連結在手機上可點擊 */
+        a.article-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: rgba(147, 51, 234, 0.2);
+            touch-action: manipulation;
+        }
+
+        /* 手機上的點擊反饋 */
+        a.article-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        /* 精選文章樣式 - 只有前3篇 - 與其他文章風格一致 */
         .featured-article {
-            grid-column: span 2;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(16, 185, 129, 0.1));
-            border: 2px solid var(--quantum-purple);
-            padding: 3rem;
-            animation: healingQuantumGlow 4s infinite alternate;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: visible;
         }
 
-        .featured-article .article-title {
-            font-size: 2rem;
-            color: var(--bagua-gold);
-        }
 
-        .featured-article .article-excerpt {
-            font-size: 1.1rem;
-            color: var(--text-light);
+
+        .featured-article:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 15px 40px rgba(147, 51, 234, 0.4),
+                0 5px 20px rgba(16, 185, 129, 0.2),
+                inset 0 0 20px rgba(147, 51, 234, 0.1);
+            border-color: var(--quantum-purple);
         }
 
         .featured-badge {
             position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--healing-green);
-            color: var(--dark-space);
-            padding: 0.5rem 1rem;
-            border-radius: 0 15px 0 15px;
-            font-weight: 700;
+            top: -12px;
+            right: 20px;
+            background: var(--quantum-purple);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
             font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 
+                0 4px 15px rgba(147, 51, 234, 0.6),
+                0 0 20px rgba(147, 51, 234, 0.4);
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Regular Featured Articles (4-9) */
-        .regular-featured {
-            background: rgba(26, 26, 46, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+
+
+        /* 一般精選文章 (第4-9篇) - 正常顯示 */
+        .article-card.regular-featured {
+            background: rgba(26, 26, 46, 0.7);
+            border: 1px solid rgba(147, 51, 234, 0.4);
         }
 
-        .regular-featured .article-title {
-            font-size: 1.4rem;
+        .article-card.regular-featured:hover {
+            border-color: var(--quantum-cyan);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
         }
 
-        /* Smaller Articles (10+) */
+        /* 其他文章（第10+篇）- 中等字體，不同視覺風格 */
         .article-card:not(.featured-article):not(.regular-featured) {
-            padding: 1rem;
-            background: rgba(15, 15, 30, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 280px;
+            padding: 1.2rem;
+            opacity: 0.7;
+            background: rgba(40, 40, 60, 0.5);
+            border: 1px solid rgba(100, 100, 120, 0.3);
+            transform: none;
         }
 
         .article-card:not(.featured-article):not(.regular-featured) .article-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #b0b0c0;
         }
 
         .article-card:not(.featured-article):not(.regular-featured) .article-excerpt {
             font-size: 0.9rem;
+            line-height: 1.4;
             color: #909098;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -868,27 +944,7 @@
 
     <script>
         const articles = [
-            // 新增文章 - 佛學因果論與風水 (第一篇精選文章)
-            {
-                id: 17,
-                title: "🔥【佛學因果論】境隨心轉：黎Sir 深度解讀量子哲學下的命運選擇權",
-                category: "🌟 哲學智慧",
-                excerpt: "風水不僅是環境佈局，更是內在修為的體現。從量子糾纏到易經智慧，理解因果法則如何影響您的空間能量場，掌握改變命運的真正鑰匙。",
-                date: "2026-02-02",
-                link: "articles/article-17-karma-fengshui-philosophy.html",
-                featured: true
-            },
-            // 新增文章 - 科學化易經招財法 (第二篇精選文章)
-            {
-                id: 16,
-                title: "🔥【黎Sir 量子風水】科學化易經招財法：如何通過能量場佈局提升 78% 財運？",
-                category: "🌟 財運風水",
-                excerpt: "財富是可量化的能量場！本文揭示電磁波與家居「財氣」的量化關聯，並提供五步實踐流程，助您精準定位財位，創造高頻聚財磁場。",
-                date: "2026-02-03",
-                link: "articles/article-16-quantum-iching-weathy.html",
-                featured: true
-            },
-            // 舊有文章 (重新排序)
+            // 精選文章 (前9篇 - Featured)
             {
                 id: 15,
                 title: "🔥【空間能量升級】量子風水淨化器：結合科技與易經的智慧選擇",
