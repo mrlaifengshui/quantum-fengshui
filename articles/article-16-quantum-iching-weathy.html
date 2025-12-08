@@ -25,6 +25,30 @@
             text-decoration: none;
             border-radius: 5px;
         }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1cm;
+            right: 20px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .whatsapp-float img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media screen and (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 1cm;
+                right: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -111,6 +135,10 @@
 <p>點擊下方連結，讓黎Sir 為您精準定位財運格局，並提供個人化的量子風水佈局方案。</p>
 
 <a href="https://www.mrlaifengshui.com/iching" class="cta-button">預約易經招財法諮詢</a>
+
+<a href="https://wa.me/85298821298" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
