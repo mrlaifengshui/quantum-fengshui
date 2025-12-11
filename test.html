@@ -176,49 +176,138 @@
     </div>
 
 
-<!-- YouTube視頻嵌入 -->
-<h2>黎Sir風水分享視頻</h2>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黎Sir風水分享視頻</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
-    .youtube-container {
-        margin-bottom: 30px; /* Add space between each video */
-    }
-    .video-title {
-        font-size: 1.2em;
-        margin-bottom: 10px;
-        color: #333;
-    }
-</style>
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
 
-<div class="youtube-container">
-    <h3 class="video-title">黎Sir量子風水師：空氣淨化風水 - 原來空氣淨化器與量子調頻改善空間氣場</h3>
-    <div class="youtube-embed">
-        <iframe 
-            width="560"
-            height="315"
-            src="https://www.youtube-nocookie.com/embed/eaVCJCSrqC0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen 
-            title="黎Sir量子風水師：空氣淨化風水 - 原來空氣淨化器與量子調頻改善空間氣場"
-            loading="lazy">
-        </iframe>
+        /* 标题样式 */
+        .page-title {
+            text-align: center;
+            margin: 20px 0 40px;
+            color: #333;
+            font-size: 2rem;
+        }
+
+        /* 视频容器样式 */
+        .videos-container {
+            display: grid;
+            gap: 30px; /* 视频之间的间距 */
+        }
+
+        .video-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 视频标题样式 */
+        .video-title {
+            margin-bottom: 15px;
+            color: #222;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* 响应式视频框架 */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 比例（高度=宽度×9/16） */
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 适配移动端 */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 1.6rem;
+            }
+            .video-title {
+                font-size: 1.1rem;
+            }
+            .video-item {
+                padding: 15px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <h2 class="page-title">黎Sir風水分享視頻</h2>
+
+    <div class="videos-container">
+        <!-- 视频1 -->
+        <div class="video-item">
+            <h3 class="video-title">黎Sir量子風水師：空氣淨化風水 - 原來空氣淨化器與量子調頻改善空間氣場</h3>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/eaVCJCSrqC0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    title="黎Sir量子風水師：空氣淨化風水 - 原來空氣淨化器與量子調頻改善空間氣場"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- 视频2 -->
+        <div class="video-item">
+            <h3 class="video-title">黎Sir量子風水師：室內設計風水 - 綜合室內設計與風水的好處</h3>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/rYGZCR7XrEQ" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    title="黎Sir量子風水師：室內設計風水 - 綜合室內設計與風水的好處"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- 视频3 -->
+        <div class="video-item">
+            <h3 class="video-title">黎Sir量子風水師：風水個案分享 - 空間的意識也會影響到家居風水</h3>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/BRFwdQ6etLw" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen 
+                    title="黎Sir量子風水師：風水個案分享 - 空間的意識也會影響到家居風水"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="youtube-container">
-    <h3 class="video-title">黎Sir量子風水師：室內設計風水 - 綜合室內設計與風水的好處</h3>
-    <div class="youtube-embed">
-        <iframe 
-            width="560"
-            height="315"
-            src="https://www.youtube-nocookie.com/embed/rYGZCR7XrEQ" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen 
-            title="黎Sir量子風水師：室內設計風水 - 綜合室內設計與風水的好處"
-            loading="lazy">
-        </iframe>
-    </div>
-</div>
+</body>
+</html>
 
 <div class="youtube-container">
     <h3 class="video-title">黎Sir量子風水師：風水個案分享 - 空間的意識也會影響到家居風水</h3>
